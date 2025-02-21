@@ -68,7 +68,7 @@ class ValorantPicker(QWidget):
 
         # Ajan resmi
         self.image_label = QLabel(self)
-        self.image_label.setPixmap(QPixmap("../images/default.jpg").scaled(150, 150))
+        self.image_label.setPixmap(QPixmap("images/default.jpg").scaled(150, 150))
         right_layout.addWidget(self.image_label)
 
         right_layout.addItem(QSpacerItem(20, 20))
@@ -85,7 +85,7 @@ class ValorantPicker(QWidget):
         main_layout.addLayout(right_layout)
         self.setLayout(main_layout)
         self.setWindowTitle("Valorant Ajan Seçici")
-        self.setWindowIcon(QIcon("../images/icon.png"))
+        self.setWindowIcon(QIcon("images/icon.png"))
         self.setFixedSize(550, 330)
 
         for checkbox in self.checkboxes.values():
@@ -121,7 +121,7 @@ class ValorantPicker(QWidget):
     def update_image(self):
         agent = self.comboBox.currentText()
         if not agent:
-            self.image_label.setPixmap(QPixmap("../images/default.jpg").scaled(150, 150))
+            self.image_label.setPixmap(QPixmap("images/default.jpg").scaled(150, 150))
             return
         else:
             if agent == "kay/o":
@@ -157,13 +157,13 @@ class ValorantPicker(QWidget):
 
     def save_selected_agents(self):
         selected_agents = [agent for agent, checkbox in self.checkboxes.items() if checkbox.isChecked()]
-        with open("../preferences/selected_agents.txt", "w") as file:
+        with open("preferences/selected_agents.txt", "w") as file:
             for agent in selected_agents:
                 file.write(f"{agent}\n")
 
     def load_selected_agents(self):
         try:
-            with open("../preferences/selected_agents.txt", "r") as file:
+            with open("preferences/selected_agents.txt", "r") as file:
                 selected_agents = file.read().splitlines()
                 for agent in selected_agents:
                     if agent in self.checkboxes:
@@ -172,24 +172,24 @@ class ValorantPicker(QWidget):
             pass
 
     def save_lock_state(self):
-        with open("../preferences/lock_state.txt", "w") as file:
+        with open("preferences/lock_state.txt", "w") as file:
             file.write("locked" if self.lockChechbox.isChecked() else "unlocked")
 
     def load_lock_state(self):
         try:
-            with open("../preferences/lock_state.txt", "r") as file:
+            with open("preferences/lock_state.txt", "r") as file:
                 state = file.read().strip()
                 self.lockChechbox.setChecked(state == "locked")
         except FileNotFoundError:
             pass
 
     def save_lock_agent(self):
-        with open("../preferences/lock_agent.txt", "w") as file:
+        with open("preferences/lock_agent.txt", "w") as file:
             file.write(self.comboBox.currentText())
 
     def load_lock_agent(self):
         try:
-            with open("../preferences/lock_agent.txt", "r") as file:
+            with open("preferences/lock_agent.txt", "r") as file:
                 agent = file.read().strip()
                 self.comboBox.setCurrentText(agent)
         except FileNotFoundError:
