@@ -37,7 +37,7 @@ veya:
 4. **app.exe dosyası oluşturma**
 
 ```bash
-  pyinstaller --onefile --noconsole app.py
+  pyinstaller --onefile --noconsole src/app.py
 ```
 
 exe doyası oluşturulduktan sonra `dist` klasöründe `app.exe` dosyasını bulabilirsiniz.

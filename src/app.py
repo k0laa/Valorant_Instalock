@@ -79,7 +79,7 @@ class ValorantPicker(QWidget):
 
         # Ajan resmi
         self.image_label = QLabel(self)
-        self.image_label.setPixmap(QPixmap("../images/default.jpg").scaled(150, 150))
+        self.image_label.setPixmap(QPixmap("../mages/default.jpg").scaled(150, 150))
         right_layout.addWidget(self.image_label)
 
         right_layout.addItem(QSpacerItem(20, 20))
@@ -152,13 +152,14 @@ class ValorantPicker(QWidget):
 
         index = self.comboBox.currentIndex()
 
-        if index >= 24:
-            pyautogui.moveTo(445, 850)
-            pyautogui.click()
-
-        timeout = time.time() + 30  # 15 saniye
+        timeout = time.time() + 30  # 30 saniye
         while True:
             if time.time() > timeout or keyboard.is_pressed('q'):  break
+            
+            if index >= 24 and time.time() < timeout - 22.5:
+                pyautogui.moveTo(445, 850)
+                pyautogui.click()
+            
             pyautogui.moveTo(konumlar[index])
             pyautogui.click()
             pyautogui.moveTo(960, 760)
