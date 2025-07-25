@@ -152,11 +152,11 @@ class ValorantPicker(QWidget):
 
         index = self.comboBox.currentIndex()
 
-        timeout = time.time() + 30  # 30 saniye
+        timeout = time.time() + 15  # 15 saniye
         while True:
             if time.time() > timeout or keyboard.is_pressed('q'):  break
             
-            if index >= 24 and time.time() < timeout - 22.5:
+            if index >= 24 and time.time() < timeout - 7.5:
                 pyautogui.moveTo(445, 850)
                 pyautogui.click()
             

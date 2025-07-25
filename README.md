@@ -47,7 +47,7 @@ exe doyası oluşturulduktan sonra `dist` klasöründe `app.exe` dosyasını bul
 5. **Ajan Seçimi**
    - uygulamayı çalıştırdıktgan sonra valorant hesabınızıdaki açık olan ajanları işaretleyin.
    - oyun içinde sırada olduğunuzdan emin olun ve oyun bulunduktan sonra seri şekilde uygulamadaki "seç" butonuna tıklayın ve bekleyin.
-   - ajan seçtikten sonra uygulamayı durdurmak için q tuşuna bir kaç saniye basılı tutun yada 30 saniye bekleyin.
+   - ajan seçtikten sonra uygulamayı durdurmak için q tuşuna bir kaç saniye basılı tutun yada 15 saniye bekleyin.
 
 ## Dikkat Edilmesi Gerekenler
 
